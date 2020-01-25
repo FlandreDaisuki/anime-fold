@@ -44,6 +44,8 @@ if (process.argv.some((arg) => arg === '--remux' || arg.match(/-\w*x\w*/))) {
   if (!stdout) {
     throw new Error('You should install ffmpeg first');
   }
+
+  process.env.ANIME_FOLD_REMUX = true;
 }
 
 process.env.MAX_TOLERATE_SIMILARITY = 0.65;
@@ -160,12 +162,15 @@ const createDirectoryForAnime = () => {
 // entry //
 
 vConsole.log('MAX_TOLERATE_SIMILARITY:', process.env.MAX_TOLERATE_SIMILARITY);
-for (const f of separateDirectoriesAndFiles().files) {
-  const MIMEString = getMIME(f);
-  const tempName = `@${Date.now()}!${f}`;
-  if (MIMEString === 'application/octet-stream') {
-    execSync(`ffmpeg -i "${f}" -c copy "${tempName}"`);
-    fs.moveSync(tempName, f, { overwrite: true });
+
+if (process.env.ANIME_FOLD_REMUX) {
+  for (const f of separateDirectoriesAndFiles().files) {
+    const MIMEString = getMIME(f);
+    const tempName = `@${Date.now()}!${f}`;
+    if (MIMEString === 'application/octet-stream') {
+      execSync(`ffmpeg -i "${f}" -c copy "${tempName}"`);
+      fs.moveSync(tempName, f, { overwrite: true });
+    }
   }
 }
 
