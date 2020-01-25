@@ -1,0 +1,27 @@
+{
+  "name": "anime-fold",
+  "version": "0.1.0",
+  "description": "Create folders and put anime into the folder with similar name",
+  "main": "index.js",
+  "bin": {
+    "anime-fold": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "FlandreDaisuki",
+  "homepage": "https://github.com/FlandreDaisuki/anime-fold",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FlandreDaisuki/anime-fold"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "^7.0.1",
+    "string-similarity": "^3.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-plugin-node": "^11.0.0"
+  }
+}
