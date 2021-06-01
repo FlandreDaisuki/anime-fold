@@ -1,6 +1,6 @@
 {
   "name": "anime-fold",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Create folders and put anime into the folder with similar name",
   "main": "index.js",
   "bin": {
@@ -17,11 +17,11 @@
   },
   "license": "MIT",
   "dependencies": {
-    "fs-extra": "^7.0.1",
-    "string-similarity": "^3.0.0"
+    "fs-extra": "^10.0.0",
+    "string-similarity": "^4.0.4"
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-plugin-node": "^11.0.0"
+    "eslint": "^7.27.0",
+    "eslint-plugin-node": "^11.1.0"
   }
 }
